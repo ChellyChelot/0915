@@ -13,7 +13,7 @@
 	<nav>
 		<t:insertAttribute name="nav" />
 	</nav>
-	<section style="min-height: 70%;">
+	<section style="min-height: 70%;" >
 		<t:insertAttribute name="section" />
 	</section>
 	<footer>
