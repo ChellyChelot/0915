@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 	@GetMapping("/info")
 	public String infoHandle() {
+		System.out.println();
 		return "t_expr"; 
 	}
 }
