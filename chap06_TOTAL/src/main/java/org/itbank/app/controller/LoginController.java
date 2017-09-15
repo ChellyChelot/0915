@@ -30,10 +30,11 @@ public class LoginController {
 	@PostMapping("/login")
 	public ModelAndView sessionHandle(@RequestParam Map param, HttpSession session) throws SQLException {
 		ModelAndView mav = new ModelAndView();
-		HashMap t = memberDao.readOne(param);
-		if (t != null) {
+		int t = memberDao.existOne(param);
+		if (t == 1) {
+			HashMap u = memberDao.readOneByIdOrEmail((String)param.get("idmail"));
 			System.out.println(t);
-			session.setAttribute("auth", t);
+			session.setAttribute("auth", u);
 			mav.setViewName("redirect:/");
 		} else {
 			mav.setViewName("t_expr");

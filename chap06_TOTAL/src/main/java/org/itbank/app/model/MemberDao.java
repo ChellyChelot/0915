@@ -24,8 +24,13 @@ public class MemberDao {
 		return sql.selectOne("member.checkByIdmailAndPass", map);
 	}
 
+	// id나 email이 머고,
+	public HashMap readOneByIdOrEmail(String idmail) {
+		return sql.selectOne("member.readOneByIdOrEmail", idmail);
+	}
+
 	// id나 email이 머고, pass가 머인 데이터가 있는지 확인할때
-	public HashMap readOne(Map map) {
-		return sql.selectOne("member.readOne", map);
+	public HashMap readOneById(String id) {
+		return sql.selectOne("member.readOneById", id);
 	}
 }
