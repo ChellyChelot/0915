@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <div align="center" style="line-height: 35px">
-	<h2>회원목록</h2>
-	<div style="width: 50%" align="left">
+	<h2>회원목록 (${tot })</h2>
+	<div style="width: 50%; min-height: 320px;" align="left">
 	<c:forEach var="obj" items="${mlist }" varStatus="vs">
 		<p>
 			<c:choose>
@@ -23,11 +23,20 @@
 	</c:forEach>
 	</div>
 	<div>
-	<button a href="/">?</button>
+		<c:if test="${param.page ne 1 }">◁</c:if>
 		<c:forEach var="i" begin="1" end="${size }" varStatus="vs">
-			<a href="/info/mlist?page=${i }">${i }</a> 
+			<c:choose>
+				<c:when test="${i eq param.page }">
+					<b style="color: #ff9800;">${i }</b>
+				</c:when>
+				<c:otherwise>
+					<a href="/info/mlist?page=${i }" style="text-decoration: none"
+						><b style="color: #9c9892;">${i }</b></a>	
+				</c:otherwise>
+			</c:choose>
 			<c:if test="${!vs.last }"> | </c:if>
 		</c:forEach>
+		<c:if test="${param.page ne last }">▷</c:if>
 	</div>
 </div>
 

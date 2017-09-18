@@ -18,6 +18,9 @@ b {
 				<b style="color: red">login failed..</b>
 			</c:if>
 		<form action="/login" method="post" autocomplete="off">
+			<c:if test="${ !empty param.redirect }">
+				<input type="hidden" name="redirect" value="${param.redirect }"/>
+			</c:if>
 			<p>
 				<b>ID or Email Address</b><br /> <input type="text" name="idmail"
 					required id="idmail" /><br /> <span id="chk_rst"></span>

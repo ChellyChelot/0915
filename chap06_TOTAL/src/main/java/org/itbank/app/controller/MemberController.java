@@ -35,7 +35,6 @@ public class MemberController {
 	public ModelAndView profileHandle(HttpSession session) {
 		ModelAndView mav = new ModelAndView("t_expr");
 		String id = (String) session.getAttribute("auth_id");
-		System.out.println("[/my/profile ] id = " + id);
 		Map prof = memberDao.readLatestProfileById(id);
 		mav.addObject("prof", prof);
 

@@ -32,30 +32,31 @@ public class MemberDao {
 	public HashMap readOneById(String id) {
 		return sql.selectOne("member.readOneById", id);
 	}
-	
-	
+
 	public int addProfile(Map map) {
 		return sql.insert("member.addProfile", map);
 	}
-	
+
 	public Map readLatestProfileById(String id) {
 		return sql.selectOne("member.readLatestProfileById", id);
 	}
-	
+
 	public List<Map> readAllProfileById(String id) {
 		return sql.selectList("member.readAllProfileById", id);
 	}
-	
+
 	public List<Map> readAllMemberWithLatestProfile() {
 		return sql.selectList("member.readAllMemberWithLatestProfile");
 	}
+
 	public List<Map> readSomeMemberWithLatestProfile(Map map) {
 		return sql.selectList("member.readSomeMemberWithLatestProfile", map);
 	}
 	
+	public Integer countAllMembers() {
+		return sql.selectOne("member.countAllMembers");
+	}
 }
-
-
 
 
 

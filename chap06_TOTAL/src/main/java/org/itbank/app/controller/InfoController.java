@@ -17,11 +17,22 @@ public class InfoController {
 	@RequestMapping("/info/mlist")
 	public ModelAndView mlistHandle(@RequestParam(name = "page", defaultValue = "1") int page) {
 		ModelAndView mav = new ModelAndView("t_expr");
-		mav.addObject("section", "info/memberlist");
-		Map p = new HashMap();
+		int tot = memberDao.countAllMembers();
+		int size = tot / 5 ;
+		if(size%5 >0)
+			size++;
 		
-		p.put("start", (page-1)*5 +1 );	// (page-1)*5 +1 
-		p.put("end", page*5);	// 기본적으로는 이렇게 한다.
+		mav.addObject("tot", tot);
+		mav.addObject("last", size);
+		mav.addObject("section", "info/memberlist");
+		if(page>size)
+			page = size;
+		if(page <0) 
+			page = 1;
+		
+		Map p = new HashMap();
+		p.put("start", (page - 1) * 5 + 1); // (page-1)*5 +1
+		p.put("end", page * 5); //
 
 		mav.addObject("mlist", memberDao.readSomeMemberWithLatestProfile(p));
 
