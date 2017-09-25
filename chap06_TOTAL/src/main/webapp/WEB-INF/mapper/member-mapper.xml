@@ -56,10 +56,8 @@
 		) where r between #{start} and #{end }
 	</select>
 	
-	<select id="countAllMemberWithLatestProfile" resultType="java.lang.Integer">
-		select count(*) as cnt from member m left join
-   			(select id, max(URL) as URL from profile group by id) p on m.id = p.id
-				order by m.id asc
+	<select id="countAllMembers" resultType="java.lang.Integer">
+		select count(*) as cnt from member
 	</select>
 	
 	

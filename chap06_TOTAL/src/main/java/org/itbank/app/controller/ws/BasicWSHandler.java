@@ -33,7 +33,7 @@ public class BasicWSHandler extends TextWebSocketHandler 	{
 		// 클라이언트측으로부터 데이터를 전송받았을때,
 		System.out.println("handleTextMessage..");
 		String m =message.getPayload();
-		System.out.println("수신된 내용 : [ " + m +" ] ");
+		System.out.println("수신된 내용 : [" + m +"]");
 	}
 	
 }
