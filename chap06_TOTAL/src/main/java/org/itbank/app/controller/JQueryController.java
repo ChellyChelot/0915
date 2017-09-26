@@ -22,6 +22,14 @@ public class JQueryController {
 		return mav;
 	}
 	
+	@RequestMapping("/qz03")
+	public ModelAndView jqueryQz03() {
+		ModelAndView mav = new ModelAndView("t_expr");
+		mav.addObject("section", "jquery/qz03");
+		return mav;
+	}
+	
+	
 	@RequestMapping("/01")
 	public ModelAndView jquery01() {
 		ModelAndView mav = new ModelAndView("t_expr");
@@ -42,5 +50,29 @@ public class JQueryController {
 		mav.addObject("section", "jquery/03");
 		return mav;
 	}
+	
+	@RequestMapping("/04")
+	public ModelAndView jquery04() {
+		ModelAndView mav = new ModelAndView("t_expr");
+		mav.addObject("section", "jquery/04");
+		return mav;
+	}
+	
+	@RequestMapping("/05")
+	public ModelAndView jquery05() {
+		ModelAndView mav = new ModelAndView("t_expr");
+		mav.addObject("section", "jquery/05");
+		return mav;
+	}
+	
+	@RequestMapping("/06")
+	public ModelAndView jquery06() {
+		ModelAndView mav = new ModelAndView("t_expr");
+		mav.addObject("section", "jquery/06");
+		return mav;
+	}
+	
+	
+	
 	
 }
